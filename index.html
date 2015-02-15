@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <title>SocketChat</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container main-content">
+  <form action="">
+    <input id="m" autocomplete="off" />
+  </form>
+  <ul id="messages"></ul>
+</div>
+
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+  var socket = io();
+  var color = getRandomColor();
+
+  $("#m").css("color", color);
+
+  $('form').submit(function(){
+    var message = {};
+    message.content =  $('#m').val();
+    message.color = color;
+    socket.emit('chat message', message);
+    $('#m').val('');
+    return false;
+  });
+  socket.on('chat message', function(msg){
+    $('#messages').prepend(msg);
+  });
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+  </script>
+
+</body>
+</html>
