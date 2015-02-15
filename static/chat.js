@@ -1,6 +1,9 @@
 var socket = io();
 var color = getRandomColor();
 
+var urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+var photoRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|]).(?:jpg|gif|png)/ig;
+
 $("#m").css("color", color);
 
 $('form').submit(function(){
@@ -15,9 +18,9 @@ $('form').submit(function(){
   }
   else {
     var command = text.substring(1);
-    alert(command);
     if (command == "color") {
       color = getRandomColor();
+      $("#m").css("color", color);
     }
     $('#m').val('');
     return false;
@@ -38,3 +41,4 @@ function getRandomColor() {
   }
   return color;
 }
+
