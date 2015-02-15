@@ -38,3 +38,9 @@ form input:focus {
 	padding-top: 20px;
 	text-align: center;
 }
+#menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 5px;
+}
