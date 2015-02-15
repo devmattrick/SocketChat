@@ -18,7 +18,7 @@ io.on('connection', function(socket){
 	io.emit('user count', online);
 	socket.on('chat message', function(msg){
     	console.log('message: ' + JSON.stringify(msg));
-    	var content = entities.encode(msg.content);
+    	var content = entities.encode(msg.content).replace(/\*([^\*]+)\*/g, "<b>$1</b>").replace(/\_([^\*]+)\_/g, "<i>$1</i>").replace(/\~([^\*]+)\~/g, "<strike>$1</strike>");
     	var color = msg.color;
     	io.emit('chat message', '<li style="color: ' + color + '">' + content + '</li>');
   	});
