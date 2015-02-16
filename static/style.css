@@ -2,6 +2,12 @@ body {
 	max-height: 100%;
 	overflow: hidden;
 }
+#messages li a {
+	color: inherit;
+}
+#messages li a:hover, a:active, a:focus {
+	color: inherit;
+}
 .main-content {
 	text-align: center;
 }
@@ -45,4 +51,11 @@ form input:focus {
 	right: 0;
 	padding: 5px;
 	text-align: right;
+}
+.embed-image {
+	max-width: 200px;
+	max-height: 200px;
+}
+#alertsound {
+	display: none;
 }

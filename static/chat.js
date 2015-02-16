@@ -1,8 +1,19 @@
 var socket = io();
 var color = getRandomColor();
 
-var urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-var photoRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|]).(?:jpg|gif|png)/ig;
+var blurred =  false;
+var title = "SocketChat";
+var alerts = 0;
+
+$(window).blur(function() {
+    blurred = true;
+});
+
+$(window).focus(function() {
+    blurred = false;
+    alerts = 0;
+    document.title = title;
+});
 
 $("#m").css("color", color);
 
@@ -27,10 +38,18 @@ $('form').submit(function(){
   }
 });
 socket.on('chat message', function(msg){
-  $('#messages').prepend(msg);
+  $(msg).prependTo("#messages").css('visibility','visible').effect("shake", {times: 1}, 250);
+  if (blurred == true) {
+    alerts++;
+    document.title = title + " | " + alerts + " New!";
+  }
 });
 socket.on('user count', function(count){
   $('#usercount').text("Users Online: " + count);
+  if (blurred == true) {
+    alerts++;
+    document.title = title + " " + alerts + " New!";
+  }
 });
 
 function getRandomColor() {
