@@ -1,6 +1,6 @@
 body {
 	max-height: 100%;
-	overflow: hidden;
+	overflow: auto;
 }
 #messages li a {
 	color: inherit;
@@ -12,7 +12,6 @@ body {
 	text-align: center;
 }
 form { 
-	padding: 3px; 
 	width: 100%; 
 	position: fixed;
 	left:0;
@@ -53,8 +52,8 @@ form input:focus {
 	text-align: right;
 }
 .embed-image {
-	max-width: 200px;
-	max-height: 200px;
+	max-width: 500px;
+	max-height: 500px;
 }
 #alertsound {
 	display: none;

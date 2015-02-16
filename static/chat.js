@@ -43,6 +43,7 @@ socket.on('chat message', function(msg){
     alerts++;
     document.title = title + " | " + alerts + " New!";
   }
+  twemoji.parse(document.body);
 });
 socket.on('user count', function(count){
   $('#usercount').text("Users Online: " + count);
