@@ -58,3 +58,41 @@ form input:focus {
 #alertsound {
 	display: none;
 }
+#invite-friends {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position:fixed;
+    padding:0;
+    margin:0;
+	z-index: 2;
+	background-color: rgba(51, 51, 51, 0.6);
+	text-align: center;
+	top: 0;
+	left: 0;
+}
+#invite-friends .invite-content {
+	display: inline-block;
+	position: relative;
+	top: 30%;
+	transform: translateY(-70%);
+	text-align: center;
+	background-color: #FFFFFF;
+	border: 2px solid #007ACC;
+	border-radius: 20px;
+	width: 50%;
+	padding: 20px;
+}
+#invite-friends .send-invites {
+	display: none;
+	margin-top: 20px;
+	border: 1px #606060 solid;
+	border-radius: 10px;
+	padding: 10px;
+	text-align: center;
+	font-size: 25px;
+}
+.send-invites input {
+	font-size: 20px;
+	height: auto;
+}

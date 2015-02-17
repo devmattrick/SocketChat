@@ -10,6 +10,9 @@
     <span id="usercount">Users Online: Loading...</span>
     <br>
     <span><a href="https://github.com/mattrick16/SocketChat">Source</a></span>
+    <br>
+    <input id="auto-embed" class="auto-embed" name="auto-embed" type="checkbox"/>
+    <label for="auto-embed">Auto Embed Media?</label>
   </div>
   <div class="container main-content">
     <form action="">
@@ -17,6 +20,7 @@
     </form>
     <ul id="messages"></ul>
   </div>
+  <div id="invite-friends"><div class="invite-content"><h1>Its no fun when nobody's here!</h1><h3>Invite some friends and get this party started!</h3><br><div class="btn-group" role="group"><button type="button" class="btn btn-danger" onclick="$('#invite-friends').fadeOut();">No Thanks</button><button type="button" class="btn btn-success" onclick="$('.send-invites').slideToggle();">Let's Do It!</button></div><div class="send-invites"><p>Send the link below to some friends (or enemies) and we'll get going!</p><input type="text" class="form-control autoselect" value="http://chat.mattrick.me"></div></div>
 
   <script src="//twemoji.maxcdn.com/twemoji.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
